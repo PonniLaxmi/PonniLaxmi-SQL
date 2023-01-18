@@ -1,30 +1,39 @@
-#FILM TABLE 
-##DUPLICATE DATA: 
+# FILM TABLE 
+------------
+## DUPLICATE DATA: 
 SELECT film_id, title, description, release_year, language_id, 
- rental_duration, rental_rate, length, replacement_cost, 
- rating, last_update, special_features, fulltext, COUNT (*) 
+       rental_duration, rental_rate, length, replacement_cost, 
+       rating, last_update, special_features, fulltext, COUNT (*) 
 FROM film 
 GROUP BY film_id, title, description, release_year, language_id, 
- rental_duration, rental_rate, length, replacement_cost, 
- rating, last_update, special_features, fulltext 
-HAVING COUNT (*)>1 --No duplicates found
-##NON-UNIFORM DATA: 
+         rental_duration, rental_rate, length, replacement_cost, 
+         rating, last_update, special_features, fulltext 
+HAVING COUNT (*)>1 
+**No duplicates found'**
+
+## NON-UNIFORM DATA: 
 SELECT DISTINCT film_id, title, description, release_year, language_id, 
- rental_duration, rental_rate, length, replacement_cost, 
- rating, last_update, special_features, full text 
-FROM film --All data are uniform
+                rental_duration, rental_rate, length, replacement_cost, 
+                rating, last_update, special_features, full text 
+FROM film 
+**All data are uniform**
+
 #CUSTOMER TABLE: 
-##DUPLICATE DATA: 
+----------------
+## DUPLICATE DATA: 
 SELECT customer_id, store_id, first_name, last_name, 
- email, address_id, activebool, create_date, 
- last_update, active, count (*) 
+       email, address_id, activebool, create_date, 
+       last_update, active, count (*) 
 FROM customer 
 GROUP BY customer_id, store_id, first_name, last_name, 
- email, address_id, activebool, create_date, 
- last_update, active 
-HAVING count (*)>1 --No duplicates found
+         email, address_id, activebool, create_date, 
+         last_update, active 
+HAVING count (*)>1 
+**No duplicates found**
+
 ##NON-UNIFORM DATA: 
 SELECT DISTINCT customer_id, store_id, first_name, last_name, 
- email, address_id, activebool, create_date, 
- last_update, active 
-FROM customer --All data are uniform
+                email, address_id, activebool, create_date, 
+                last_update, active 
+FROM customer 
+**All data are uniform**
